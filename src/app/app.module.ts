@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InspectorModule } from '@ngneat/inspector';
+import { environment } from '../environments/environment';
+import {DropdownListModule} from './components/dropdown-list/dropdown-list.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +14,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    environment.production ? [] : InspectorModule.forRoot(),
+    DropdownListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
